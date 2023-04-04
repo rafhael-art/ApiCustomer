@@ -2,15 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package pe.cibertec.ecommerce.ApiCustomer.dao;
+package pe.cibertec.ecommerce.ApiCustomer.service;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 import pe.cibertec.ecommerce.ApiCustomer.entity.Customer;
 
 /**
  *
  * @author rafhael
  */
-public interface CustomerRepository extends CrudRepository<Customer, Long>{
+public interface CustomerSevice {
+    public List<Customer> findAll();
+    public Customer findById(Long id);
     
 }
