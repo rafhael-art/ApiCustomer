@@ -28,5 +28,35 @@ public class CustomerServiceImpl implements CustomerSevice{
     public Customer findById(Long id) {
         return  customerRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Customer findByEmail(String mail) {
+      return  customerRepository.findByEmail(mail);
+    }
+
+    @Override
+    public Customer findByPhone(String phone) {
+        return  customerRepository.findByPhone(phone);
+    }
+
+    @Override
+    public Customer add(Customer customer) {
+         return  customerRepository.save(customer);
+    }
+
+    @Override
+    public Customer update(Long id, Customer customer) {
+          Customer customerDB = customerRepository.findById(id).get();
+          customerDB.setName(customer.getName());
+          customerDB.setEmail(customer.getEmail());
+          customerDB.setPhone(customer.getPhone());
+          return  customerRepository.save(customerDB);
+    }
+
+    @Override
+    public void delete(Long id) {
+         Customer customerDB = customerRepository.findById(id).get();
+         customerRepository.delete(customerDB);
+    }
     
 }

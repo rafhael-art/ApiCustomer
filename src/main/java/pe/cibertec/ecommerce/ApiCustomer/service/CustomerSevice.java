@@ -14,5 +14,9 @@ import pe.cibertec.ecommerce.ApiCustomer.entity.Customer;
 public interface CustomerSevice {
     public List<Customer> findAll();
     public Customer findById(Long id);
-    
+    public Customer findByEmail(String mail);
+    public Customer findByPhone(String phone);
+    public Customer add(Customer customer);
+    public Customer update(Long id,Customer customer);
+    public void delete(Long id);
 }
